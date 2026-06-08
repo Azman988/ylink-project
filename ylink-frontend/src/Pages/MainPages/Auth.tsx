@@ -86,19 +86,19 @@ const Auth: React.FC = () => {
 
         try {
             // Determine API Endpoint based on URL mode
-            let endpoint = '';
-            let payload = {};
+            // let endpoint = '';
+            // let payload = {};
 
-            if (currentMode === 'signin') {
-                endpoint = '/api/auth/login';
-                payload = { email: formData.email, password: formData.password };
-            } else if (currentMode === 'signup') {
-                endpoint = '/api/auth/register';
-                payload = { name: formData.name, email: formData.email, phone: formData.phone, password: formData.password };
-            } else {
-                endpoint = '/api/auth/reset-password-request';
-                payload = { email: formData.email };
-            }
+            // if (currentMode === 'signin') {
+            //     endpoint = '/api/auth/login';
+            //     payload = { email: formData.email, password: formData.password };
+            // } else if (currentMode === 'signup') {
+            //     endpoint = '/api/auth/register';
+            //     payload = { name: formData.name, email: formData.email, phone: formData.phone, password: formData.password };
+            // } else {
+            //     endpoint = '/api/auth/reset-password-request';
+            //     payload = { email: formData.email };
+            // }
 
             /*
             const response = await fetch(endpoint, {

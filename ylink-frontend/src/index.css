@@ -110,14 +110,14 @@ body {
 @media print {
 
   /* Hide the entire viewport hierarchy completely */
-  html,
+  /* html,
   body,
   #root,
-  .print\\:hidden {
+  .print\\::hidden {
     visibility: hidden !important;
     opacity: 0 !important;
     background: #ffffff !important;
-  }
+  } */
 
   /* Target the invoice template container specifically and force it to show */
   #printable-invoice,
