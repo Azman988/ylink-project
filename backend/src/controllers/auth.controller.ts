@@ -4,6 +4,9 @@ import User from '../models/User';
 import crypto from 'crypto';
 import { sendEmail } from '../utils/sendEmail';
 
+const SIGNUP_BONUS_POINTS = 1500;
+const REFERRER_BONUS_POINTS = 1000;
+
 // Helper to generate and send JWT securely
 const sendTokenResponse = (user: any, statusCode: number, res: Response) => {
     const secret = process.env.JWT_SECRET;
@@ -33,7 +36,7 @@ const sendTokenResponse = (user: any, statusCode: number, res: Response) => {
         .cookie('token', token, cookieOptions)
         .json({
             success: true,
-            user: { id: user._id, name: user.name, email: user.email, phone: user.phone, role: user.role, referralCode: user.referralCode, bonusPoints: user.bonusPoints }
+            user: { id: user._id, name: user.name, email: user.email, phone: user.phone, role: user.role, referralCode: user.referralCode, isVerified: user.isVerified, bonusPoints: user.bonusPoints }
         });
 };
 
@@ -119,14 +122,19 @@ export const verifyEmailCode = async (req: Request, res: Response, next: NextFun
         user.isVerified = true;
         user.verificationCode = undefined;
         user.verificationCodeExpires = undefined;
-        await user.save();
 
-        // Award referral points now that account is verified
-        if (user.referredBy) {
-            await User.findByIdAndUpdate(user.referredBy, {
-                $inc: { bonusPoints: 500 }
-            });
+        if (!user.hasClaimedSignupBonus) {
+            user.bonusPoints += SIGNUP_BONUS_POINTS;
+            user.hasClaimedSignupBonus = true;
+
+            // Award referral points now that account is verified
+            if (user.referredBy) {
+                await User.findByIdAndUpdate(user.referredBy, {
+                    $inc: { bonusPoints: REFERRER_BONUS_POINTS }
+                });
+            }
         }
+        await user.save();
 
         // Issue token / log in user now
         sendTokenResponse(user, 200, res);

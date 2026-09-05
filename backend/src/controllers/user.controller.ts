@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../models/User';
 import Address from '../models/Address';
+import Order from '../models/Order';
+import Cart from '../models/Cart';
 
 export const getUserProfile = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -94,14 +96,33 @@ export const updateProfile = async (req: Request, res: Response, next: NextFunct
   }
 };
 
-// De
+// Delete Account
 export const deleteAccount = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    const userId = (req as any).user.id || (req as any).user._id;
+
     // Delete associated addresses
-    await Address.deleteMany({ user: req.user.id });
+    await Address.deleteMany({ user: userId });
+
+    // Delete associated cart items
+    await Cart.deleteMany({ user: userId });
+
+    // Fetch the user document to check their role
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found.' });
+    }
+
+    if (user.role === 'delivery') {
+      // If the user is a delivery driver, delete their associated orders
+      await Order.deleteMany({ deliveryPerson: userId });
+    }
+
+    // Delete associated orders
+    await Order.deleteMany({ user: userId });
 
     // Delete the user
-    await User.findByIdAndDelete(req.user.id);
+    await User.findByIdAndDelete(userId);
 
     // Clear the authentication cookie
     res.clearCookie('token', {

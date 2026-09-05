@@ -37,6 +37,7 @@ const UserSchema = new Schema({
         type: Number,
         default: 0
     },
+    hasClaimedSignupBonus: { type: Boolean, default: false },
     role: {
         type: String,
         enum: ['user', 'manager', 'admin', 'delivery'],
