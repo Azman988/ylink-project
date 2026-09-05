@@ -1,7 +1,33 @@
-# Root .gitignore
+# Dependencies
 node_modules/
-dist/
+
+# Environment Variables (CRITICAL SECURITY)
 .env
 .env.local
+.env.production
+
+# Build Outputs (Hosting services like Vercel/Render build these automatically)
+dist/
+build/
+.vite/
+
+# Logs & Temporary Files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# logs/
 *.log
+
+# OS / Editor Files
 .DS_Store
+.vscode/
+.idea/
+
+# Miscellaneous
+*.swp
+
+.postman/
+postman/
+
+# Ignore seed files
+seeders/
