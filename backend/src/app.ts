@@ -54,6 +54,15 @@ app.use('/api/users', userRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
 
+// --- Health Check Endpoint ---
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'YLink API Server is up and running!',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // --- Global Error Handler ---
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
     console.error(err.stack);
