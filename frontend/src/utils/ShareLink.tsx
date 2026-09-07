@@ -1,6 +1,6 @@
 import { CopyCheckIcon, CopyIcon, Share2Icon } from 'lucide-react';
 import React, { useState } from 'react';
-import { useToast } from '../../context/ToastContext';
+import { useToast } from '../context/ToastContext';
 
 interface ShareLinkProps {
     url: string;

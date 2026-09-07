@@ -6,7 +6,7 @@ import {
   PhoneIcon, ShieldCheck, ChevronRight,
   TrashIcon
 } from 'lucide-react';
-import { ShareLink } from '../../Components/Others/ShareLink';
+import { ShareLink } from '../../utils/ShareLink';
 import AddressBook from '../../Components/MainComponents/Address/Address';
 import { useAuth } from '../../context/AuthContext';
 import { orderApi, type Order } from '../../api/orderApi';

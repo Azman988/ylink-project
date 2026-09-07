@@ -14,7 +14,7 @@ import {
     ImageIcon,
 } from 'lucide-react';
 import ProductCard from '../../Components/MainComponents/ProductCard/ProductCard';
-import { ShareLink } from '../../Components/Others/ShareLink';
+import { ShareLink } from '../../utils/ShareLink';
 import { useCart } from '../../context/CartContext';
 import { productApi, type ProductDetail, type ReviewPayload } from '../../api/productApi';
 import { formatPriceWithCurrency } from '../../utils/money';
