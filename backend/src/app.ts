@@ -24,7 +24,7 @@ app.use(helmet());
 
 // Configure CORS for specific frontend origins and allow secure cookies
 const allowedOrigins = [
-    'https://your-frontend-domain.com', // Replace with your actual frontend URL
+    process.env.CLIENT_URL, 
     'http://localhost:5173' // Local Development
 ];
 
