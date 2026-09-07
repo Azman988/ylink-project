@@ -6,7 +6,7 @@ import { AuthProvider } from './context/AuthContext.tsx';
 import { ToastProvider } from './context/ToastContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter basename='/ylink-project'>
+  <BrowserRouter basename='/'>
     <ToastProvider>
       <AuthProvider>
         <App />

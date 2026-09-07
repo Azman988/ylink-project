@@ -10,8 +10,8 @@ const API = axios.create({
 //     (response) => response,
 //     (error) => {
 //         const requestUrl = error.config?.url || '';
-//         const isMain = window.location.pathname === '/ylink-project/';
-//         const isMainEndpoint = requestUrl.includes('/ylink-project/');
+//         const isMain = window.location.pathname === '/';
+//         const isMainEndpoint = requestUrl.includes('/');
 
 //         // Only handle 401s if we aren't already on /Main and it wasn't a main endpoint request
 //         if (error.response?.status === 401 && !isMain && !isMainEndpoint) {
@@ -28,7 +28,7 @@ const API = axios.create({
 //             localStorage.removeItem('role');
 
 //             // Redirect to login page
-//             window.location.href = '/ylink-project/auth';
+//             window.location.href = '/auth';
 //         }
 //         return Promise.reject(error);
 //     }

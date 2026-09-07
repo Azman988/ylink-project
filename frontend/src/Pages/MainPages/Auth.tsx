@@ -156,7 +156,7 @@ const Auth: React.FC = () => {
         const destination = from
             ? from
             : activeUser?.role === 'admin'
-                ? '/ylink-project/admin'
+                ? '/admin'
                 : '/';
 
         navigate(destination, { replace: true });
