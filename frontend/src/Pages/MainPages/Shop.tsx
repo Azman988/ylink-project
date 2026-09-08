@@ -179,7 +179,7 @@ const Shop: React.FC = () => {
     return (
         <main className="min-h-screen w-full max-w-full bg-slate-50 text-slate-800 font-sans pb-24 overflow-x-hidden">
             {/* --- HERO HEADER SECTION --- */}
-            <div className="relative bg-[url('/shop.webp')] bg-cover bg-center bg-no-repeat text-white pt-30 px-6 mb-23">
+            <div className="relative bg-[url('/shop.webp')] bg-cover bg-center bg-no-repeat text-white pt-30 sm:px-6 px-4 mb-23">
                 {/* overlay */}
                 <div className="absolute inset-0 bg-black/75"></div>
                 <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
@@ -199,7 +199,7 @@ const Shop: React.FC = () => {
 
                 {/* --- FILTER CONTROL BAR --- */}
                 <div
-                    className="transform translate-y-1/2 bg-white rounded-3xl lg:py-4 py-3 px-5 border border-slate-200 shadow-xl shadow-slate-200/40 flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 animate-fade-in-up"
+                    className="max-w-7xl mx-auto transform translate-y-1/2 bg-white rounded-3xl lg:py-4 py-3 sm:px-6 px-4 border border-slate-200 shadow-xl shadow-slate-200/40 flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 animate-fade-in-up"
                     style={{ animationDelay: '0.1s' }}
                 >
                     {/* Categories Horizontal Scroll */}
@@ -290,7 +290,7 @@ const Shop: React.FC = () => {
             </div>
 
             {/* --- CATALOG CONTENT --- */}
-            <div className="max-w-7xl mx-auto px-6 relative z-20">
+            <div className="max-w-7xl mx-auto sm:px-6 px-4 relative z-20">
                 {/* Active Filter State Label */}
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-6 text-slate-400 text-sm font-bold uppercase tracking-wider animate-fade-in px-2">
                     <div className="flex items-center gap-2">
@@ -312,7 +312,7 @@ const Shop: React.FC = () => {
 
                 {/* Product Grid Area */}
                 {isLoading ? (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-4">
                         {Array.from({ length: 10 }).map((_, index) => (
                             <ProductCard key={index} isLoading={true} />
                         ))}
@@ -320,7 +320,7 @@ const Shop: React.FC = () => {
                 ) : productsData.length > 0 ? (
                     <>
                         <div
-                            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 animate-fade-in-up"
+                            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 sm:gap-2 md:gap-4 animate-fade-in-up"
                             style={{ animationDelay: '0.2s' }}
                         >
                             {productsData.map((product) => (

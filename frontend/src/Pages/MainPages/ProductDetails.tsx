@@ -542,7 +542,7 @@ const ProductDetails: React.FC = () => {
                                 View More <ChevronRight className="w-4 h-4" />
                             </Link>
                         </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-4">
                             {relatedProducts.map((related) => (
                                 <ProductCard key={related._id} product={related} />
                             ))}

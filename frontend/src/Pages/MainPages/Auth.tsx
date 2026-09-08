@@ -364,8 +364,8 @@ const Auth: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-full max-w-md animate-in fade-in slide-in-from-bottom-4 duration-500 flex items-center justify-center">
-                    <div className="w-full h-full">
+                <div className="w-full h-full max-w-md animate-fade-in-up duration-500 flex items-center justify-center">
+                    <div>
                         {/* Success States */}
                         {authStatus === 'success' ? (
                             <div className="text-center py-12 animate-in fade-in zoom-in-95 duration-500">

@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isLoading }) => {
       </div>
 
       {/* Meta Frame */}
-      <div className="p-3.5 sm:p-4 flex flex-col flex-grow border-t border-slate-50">
+      <div className="p-2 sm:p-3 flex flex-col flex-grow border-t border-slate-50">
         {/* Rating Stars Bar */}
         <div className="flex items-center gap-1 mb-1.5">
           <div className="flex items-center gap-0.5 text-amber-400">
@@ -121,7 +121,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isLoading }) => {
             aria-label={`Add ${product.name} to cart`}
           >
             {inCart && (
-              <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
+              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
                 {cartQuantity}
               </span>
             )}

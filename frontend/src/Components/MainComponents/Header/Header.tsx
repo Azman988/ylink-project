@@ -123,7 +123,7 @@ export function Header() {
                             </button>
                         ) : (
                             <>
-                                <Link to='/auth' className='hidden md:flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-slate-900 text-white font-bold text-sm transition-all shadow-md shadow-blue-600/10 cursor-pointer'>
+                                <Link to='/auth' className='hidden md:flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-600/80 text-white font-bold text-sm transition-all shadow-md shadow-blue-600/10 cursor-pointer'>
                                     <UserIcon className='w-4 h-4' />
                                     Sign In
                                 </Link>

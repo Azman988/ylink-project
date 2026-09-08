@@ -7,7 +7,7 @@ const RepairConsultationView: React.FC = () => {
 
     return (
         <div className="animate-fade-in">
-            <div className="bg-[url('/repair.webp')] bg-cover bg-center bg-no-repeat text-white pt-28 pb-24 px-6 relative overflow-hidden">
+            <div className="bg-[url('/repair.webp')] bg-cover bg-center bg-no-repeat text-white pt-28 pb-24 sm:px-6 px-4 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/75"></div>
                 <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
                 <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl translate-y-1/3 translate-x-1/3"></div>
@@ -25,7 +25,7 @@ const RepairConsultationView: React.FC = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 -mt-12 relative z-20">
+            <div className="max-w-7xl mx-auto sm:px-6 px-4 -mt-12 relative z-20">
                 <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
 
                     {/* Left: Repair Benefits */}
