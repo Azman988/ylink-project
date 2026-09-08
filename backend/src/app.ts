@@ -15,7 +15,10 @@ import { apiLimiter } from './middlewares/rateLimiter.middleware';
 
 const app: Application = express();
 
-// --- Webhook Route for Paystack , express.raw({ type: 'application/json' }) ---
+// --- Trust Proxy Configuration ---
+app.set('trust proxy', 1);
+
+// --- Webhook Route for Paystack ---
 app.post('/api/webhook/paystack', handlePaystackWebhook);
 
 // --- Security Middlewares ---
