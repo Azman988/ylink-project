@@ -55,6 +55,7 @@ export interface UserAccount {
     phone?: string;
     createdAt: string;
     role?: string;
+    isVerified?: boolean;
 }
 
 export interface DashboardMetrics {
