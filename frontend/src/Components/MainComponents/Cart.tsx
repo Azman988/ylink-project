@@ -85,7 +85,7 @@ export function Cart({ mobile }: any) {
                                     />
 
                                     {/* Item Image */}
-                                    <div className="min-w-[130px] max-w-[130px] h-[140px] bg-slate-50 p-0.5 border-r border-slate-100 flex items-center justify-center ">
+                                    <div className="min-w-[130px] max-w-[140px] max-h-[160px] bg-slate-50 p-0.5 border-r border-slate-100 flex items-center justify-center ">
                                         {item.product.images && item.product.images.length > 0
                                             ? <img
                                                 src={item.product.images[0]?.url}
@@ -102,15 +102,15 @@ export function Cart({ mobile }: any) {
                                     </div>
 
                                     {/* Item Details */}
-                                    <div className="p-3 w-full flex flex-col justify-between">
+                                    <div className="p-2 sm:p-3 w-full flex flex-col justify-between">
 
                                         <div>
                                             <h6 className="font-semibold text-slate-900 text-sm leading-snug line-clamp-2 pr-6 group-hover:text-blue-600 transition-colors">
                                                 {item.product.overview}
                                             </h6>
 
-                                            <div className="flex items-center gap-3 mt-2">
-                                                <div className="flex gap-1 items-baseline">
+                                            <div className="flex items-center justify-between mt-2">
+                                                <div className="flex flex-col sm:flex-row gap-0.5 sm:gap-1 items-baseline">
                                                     {item.product.dPrice && (
                                                         <p className="font-semibold text-xs text-rose-500 line-through">
                                                             {formatPriceWithCurrency(item.product.price)}
@@ -123,15 +123,15 @@ export function Cart({ mobile }: any) {
                                                 </div>
 
                                                 {item.product.isActive ? (
-                                                    <span className="text-emerald-600 text-xs font-medium animate-pulse">In Stock🔥</span>
+                                                    <span className="text-emerald-600 text-[9px] sm:text-xs font-medium animate-pulse">In Stock🔥</span>
                                                 ) : (
-                                                    <span className="text-rose-800 text-xs font-medium animate-pulse">Out of Stock</span>
+                                                    <span className="text-rose-800 text-[9px] sm:text-xs font-medium animate-pulse">Out of Stock</span>
                                                 )}
                                             </div>
                                         </div>
 
                                         {/* Actions Row */}
-                                        <div className="flex items-center justify-between w-full mt-3">
+                                        <div className="flex items-center justify-between w-full mt-3.5">
                                             {/* Quantity Control */}
                                             <div className="relative z-20 flex items-center bg-slate-50 border border-slate-200 rounded-lg p-0.5">
                                                 <button

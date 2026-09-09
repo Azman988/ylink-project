@@ -153,7 +153,7 @@ const AddressBook = ({ allowEdit = true }: Edit) => {
         </div>
 
         {addresses.length === 0 ? (
-          <div className="bg-white rounded-3xl border border-slate-200 p-16 text-center shadow-sm max-w-xl mx-auto">
+          <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-16 text-center shadow-sm max-w-xl mx-auto">
             <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
               <MapPinIcon className="w-6 h-6" />
             </div>

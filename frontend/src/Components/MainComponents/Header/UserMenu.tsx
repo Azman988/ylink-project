@@ -38,7 +38,7 @@ export function UseMenu({ user, userMenu, setUserMenu, closeUserMenu, adminNav, 
     return (
         <div
             ref={userMenuRef}
-            className={`absolute top-full mt-3 right-[-10px] sm:right-0 z-50 bg-white rounded-2xl w-64 shadow-lg shadow-slate-200/60 border border-slate-100 p-2 animate-fade-in origin-top-right transition-all`}
+            className={`absolute top-full mt-3 -right-[9px] sm:right-0 z-50 bg-white rounded-2xl w-64 shadow-xl shadow-slate-200/60 border border-slate-100 p-2 animate-fade-in origin-top-right transition-all`}
         >
             {/* --- USER HEADER --- */}
             <div className='mb-2'>
@@ -46,13 +46,13 @@ export function UseMenu({ user, userMenu, setUserMenu, closeUserMenu, adminNav, 
                     <Link
                         to="/account"
                         onClick={closeUserMenu}
-                        className='flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors duration-200 group'
+                        className='flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors duration-200 group'
                     >
                         <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                             <UserCircle2 className='w-6 h-6' />
                         </div>
                         <div className="flex-1 min-w-0">
-                            <p className='text-sm font-black text-slate-900 truncate group-hover:text-blue-600 transition-colors'>{user?.name}</p>
+                            <p className='text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors'>{user?.name}</p>
                             <p className='text-xs font-medium text-slate-500 truncate'>{user?.email}</p>
                         </div>
                     </Link>
@@ -70,7 +70,7 @@ export function UseMenu({ user, userMenu, setUserMenu, closeUserMenu, adminNav, 
             </div>
 
             {/* --- MOBILE NAV LINKS (Hidden on md) --- */}
-            <div className='flex flex-col md:hidden mb-2 space-y-0.5 border-b border-slate-100 pb-2'>
+            <div className='md:hidden mb-2 space-y-2 sm:space-y-0.5 border-b border-slate-100 pb-2'>
                 {mobileNavLinks.map((link) => (
                     <NavLink
                         key={link.to}
