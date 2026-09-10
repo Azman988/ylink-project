@@ -6,7 +6,7 @@ import { formatPriceWithCurrency } from "../../utils/money.ts";
 export function Cart({ mobile }: any) {
     const navigate = useNavigate();
     const { cartItems, removeFromCart, decreaseQuantity, getCartItemQuantity, increaseQuantity, clearCart, cartTotal, cartOpen, setCartOpen } = useCart();
-    
+
     return (
         <>
             {/* Backdrop Blur Overlay */}
@@ -122,10 +122,11 @@ export function Cart({ mobile }: any) {
                                                     </p>
                                                 </div>
 
-                                                {item.product.isActive ? (
+                                                {item.product.stockQuantity > 5 ? (
                                                     <span className="text-emerald-600 text-[9px] sm:text-xs font-medium animate-pulse">In Stock🔥</span>
-                                                ) : (
-                                                    <span className="text-rose-800 text-[9px] sm:text-xs font-medium animate-pulse">Out of Stock</span>
+                                                ) : (item.product.stockQuantity < 1 ?
+                                                    (<span className="text-rose-800 text-[9px] sm:text-xs font-medium animate-pulse">Out of Stock</span>)
+                                                    : (<span className="text-amber-600 text-[9px] sm:text-xs font-medium animate-pulse">Low Stock⚠️</span>)
                                                 )}
                                             </div>
                                         </div>
