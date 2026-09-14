@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "https://ylink-project.onrender.com/api/:path*"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
