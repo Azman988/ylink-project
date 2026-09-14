@@ -49,7 +49,7 @@ interface AuthContextType {
     isAuthenticated: boolean;
     isLoading: boolean;
     setIsLoading: Dispatch<SetStateAction<boolean>>;
-    login: (email: string, password: string) => Promise<void>;
+    login: (email: string, password: string) => Promise<User>;
     register: (
         name: string,
         email: string,
@@ -118,10 +118,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setIsLoading(true);
         try {
             const response = await API.post('/auth/login', { email, password });
-            if (!response?.data) throw new Error('Authentication response was empty.');
+            const loggedInUser: User = response.data.user;
 
-            await checkAuth();
-            showToast('Logged in successfully!', 'success');
+            if (!loggedInUser) throw new Error('Authentication response was empty.');
+
+            persistUserSession(loggedInUser);
+            return loggedInUser;
         } catch (error) {
             console.error('Login Error:', error);
             throw error;

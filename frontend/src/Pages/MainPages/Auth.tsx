@@ -159,11 +159,10 @@ const Auth: React.FC = () => {
                 ? '/admin'
                 : '/shop';
 
-        if (!activeUser) return; 
         navigate(destination, { replace: true });
 
         console.log(`Navigating to: ${destination} | User Role: ${activeUser?.role || 'N/A'} | Auth Mode: ${currentMode} | Email: ${activeUser?.email || formData.email}`);
-        
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -205,19 +204,17 @@ const Auth: React.FC = () => {
 
         try {
             if (currentMode === 'signin') {
-                await login(formData.email, formData.password);
-                const authenticatedUser = user;
+                const loggedInUser = await login(formData.email, formData.password);
 
                 // Enforce email verification check on Sign In
-                // if (authenticatedUser && (authenticatedUser.isVerified === false)) {
-                //     setSuccessMessage('Your email address is not verified yet. Please enter the verification code sent to your inbox.');
-                //     handleModeSwitch('verify_email', formData.email);
-                //     return;
-                // }
+                if (loggedInUser && (loggedInUser.isVerified === false)) {
+                    setSuccessMessage('Your email address is not verified yet. Please enter the verification code sent to your inbox.');
+                    handleModeSwitch('verify_email', formData.email);
+                    return;
+                }
 
                 setAuthStatus('success');
-                navigateToDestination(authenticatedUser);
-
+                navigateToDestination(loggedInUser);
             } else if (currentMode === 'signup') {
                 await register(
                     formData.name,
