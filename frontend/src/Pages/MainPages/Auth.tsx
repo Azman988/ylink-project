@@ -207,11 +207,11 @@ const Auth: React.FC = () => {
                 const loggedInUser = await login(formData.email, formData.password);
 
                 // Enforce email verification check on Sign In
-                if (loggedInUser && (loggedInUser.isVerified === false)) {
-                    setSuccessMessage('Your email address is not verified yet. Please enter the verification code sent to your inbox.');
-                    handleModeSwitch('verify_email', formData.email);
-                    return;
-                }
+                // if (loggedInUser && (loggedInUser.isVerified === false)) {
+                //     setSuccessMessage('Your email address is not verified yet. Please enter the verification code sent to your inbox.');
+                //     handleModeSwitch('verify_email', formData.email);
+                //     return;
+                // }
 
                 setAuthStatus('success');
                 navigateToDestination(loggedInUser);

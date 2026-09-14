@@ -123,6 +123,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (!loggedInUser) throw new Error('Authentication response was empty.');
 
             persistUserSession(loggedInUser);
+            await checkAuth();
             return loggedInUser;
         } catch (error) {
             console.error('Login Error:', error);
