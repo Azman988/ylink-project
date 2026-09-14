@@ -157,9 +157,9 @@ const Auth: React.FC = () => {
             ? from
             : activeUser?.role === 'admin'
                 ? '/admin'
-                : '/';
+                : '/shop';
 
-        navigate(destination, { replace: true });
+        activeUser && navigate(destination, { replace: true });
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
