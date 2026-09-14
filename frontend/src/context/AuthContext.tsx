@@ -118,13 +118,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setIsLoading(true);
         try {
             const response = await API.post('/auth/login', { email, password });
-            const loggedInUser: User = response.data.user;
+            const { token, user } = response.data;
 
-            if (!loggedInUser) throw new Error('Authentication response was empty.');
+            if (!user) throw new Error('Authentication response was empty.');
 
-            persistUserSession(loggedInUser);
+            localStorage.setItem('token', token);
+            persistUserSession(user);
             await checkAuth();
-            return loggedInUser;
+            return user;
         } catch (error) {
             console.error('Login Error:', error);
             throw error;

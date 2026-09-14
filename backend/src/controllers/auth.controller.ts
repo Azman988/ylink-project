@@ -36,6 +36,7 @@ const sendTokenResponse = (user: any, statusCode: number, res: Response) => {
         .cookie('token', token, cookieOptions)
         .json({
             success: true,
+            token,
             user: { id: user._id, name: user.name, email: user.email, phone: user.phone, role: user.role, referralCode: user.referralCode, isVerified: user.isVerified, bonusPoints: user.bonusPoints }
         });
 };

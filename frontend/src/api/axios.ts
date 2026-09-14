@@ -5,6 +5,17 @@ const API = axios.create({
     withCredentials: true, // CRITICAL: Tells browser to send HTTP-only cookies automatically
 });
 
+API.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => Promise.reject(error)
+);
+
 // Response Interceptor: Catches expired/invalid token responses globally
 // API.interceptors.response.use(
 //     (response) => response,
